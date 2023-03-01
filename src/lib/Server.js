@@ -17,7 +17,6 @@ const {
   RELEASE,
   PASSWORD,
 } = require('../config');
-const { type } = require('os');
 
 module.exports = class Server {
 
