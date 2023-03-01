@@ -26,3 +26,5 @@ iptables -A FORWARD -o wg0 -j ACCEPT;
 
 module.exports.WG_PRE_DOWN = process.env.WG_PRE_DOWN || '';
 module.exports.WG_POST_DOWN = process.env.WG_POST_DOWN || '';
+module.exports.TG_TOKEN = process.env.TG_TOKEN || '';
+module.exports.TG_CHAT_ID = process.env.TG_CHAT_ID || '';

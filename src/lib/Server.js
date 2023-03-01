@@ -9,12 +9,15 @@ const debug = require('debug')('Server');
 const Util = require('./Util');
 const ServerError = require('./ServerError');
 const WireGuard = require('../services/WireGuard');
+const Telegram = require('../services/Telegram') 
+const os = require('os')
 
 const {
   PORT,
   RELEASE,
   PASSWORD,
 } = require('../config');
+const { type } = require('os');
 
 module.exports = class Server {
 
@@ -50,18 +53,25 @@ module.exports = class Server {
         const {
           password,
         } = req.body;
+        const notifyText = `WireGuard面板登陆【@status】提醒
+主机名称:${os.hostname()}
+时间:${new Date().toLocaleString('zh-CN')}
+IP:${req.ip}`
 
         if (typeof password !== 'string') {
-          throw new ServerError('Missing: Password', 401);
+          Telegram.notifyText(notifyText.replace("@status","失败"));
+          throw new ServerError('密码格式不正确', 401);
         }
 
         if (password !== PASSWORD) {
-          throw new ServerError('Incorrect Password', 401);
+          Telegram.notifyText(notifyText.replace("@status","失败"));
+          throw new ServerError('密码错误', 401);
         }
-
+        Telegram.notifyText(notifyText.replace("@status","成功"));
+        
         req.session.authenticated = true;
         req.session.save();
-
+        
         debug(`New Session: ${req.session.id}`);
       }))
 

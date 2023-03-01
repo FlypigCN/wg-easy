@@ -26,7 +26,7 @@
       <div v-if="authenticated === true">
         <span v-if="requiresPassword"
           class="text-sm text-gray-400 mb-10 mr-2 mt-3 cursor-pointer hover:underline float-right" @click="logout">
-          Logout
+          退出
           <svg class="h-3 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,7 +37,7 @@
           <img src="./img/logo.png" width="32" class="inline align-middle" />
           <span class="align-middle">WireGuard</span>
         </h1>
-        <h2 class="text-sm text-gray-400 mb-10">Flypig version</h2>
+        <h2 class="text-sm text-gray-400 mb-10">中文版</h2>
 
         <div v-if="latestRelease" class="bg-red-800 p-4 text-white text-sm font-small mb-10 rounded-md shadow-lg"
           :title="`v${currentRelease} → v${latestRelease.version}`">
@@ -475,7 +475,7 @@
             </svg>
           </div>
 
-          <input type="password" name="password" placeholder="Password" v-model="password"
+          <input type="password" name="password" placeholder="密码" v-model="password"
             class="px-3 py-2 text-sm text-gray-500 mb-5 border-2 border-gray-100 rounded-lg w-full focus:border-red-800 outline-none" />
 
           <button v-if="authenticating"
@@ -490,9 +490,9 @@
           </button>
           <input v-if="!authenticating && password" type="submit"
             class="bg-red-800 w-full rounded shadow py-2 text-sm text-white hover:bg-red-700 transition cursor-pointer"
-            value="Sign In">
+            value="登录">
           <input v-if="!authenticating && !password" type="submit"
-            class="bg-gray-200 w-full rounded shadow py-2 text-sm text-white cursor-not-allowed" value="Sign In">
+            class="bg-gray-200 w-full rounded shadow py-2 text-sm text-white cursor-not-allowed" value="登录">
         </form>
       </div>
 
