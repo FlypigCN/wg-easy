@@ -91,6 +91,8 @@ Web UI现在可以在 `http://0.0.0.0:51821` 上使用。
 | `WG_POST_UP` | `...` | `iptables ...` | 请参阅 [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L20) 了解默认值 |
 | `WG_PRE_DOWN` | `...` | - | 请参阅 [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L27) 了解默认值 |
 | `WG_POST_DOWN` | `...` | `iptables ...` | 请参阅 [config.js](https://github.com/WeeJeWel/wg-easy/blob/master/src/config.js#L28) 了解默认值|
+| `TG_TOKEN` | `null` | `-` | Telegram Robot Token |
+| `TG_CHAT_ID`| `null` | `-` | Telegram Robot Chat Id |
 
 > 如果您更改了`WG_PORT`，请确保也更改公开的端口。
 
